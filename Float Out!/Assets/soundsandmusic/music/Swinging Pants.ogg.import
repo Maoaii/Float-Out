@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Swinging Pants.ogg-c11bf409cb55a464da373fb845a20331.oggstr"
+
+[deps]
+
+source_file="res://Assets/soundsandmusic/music/Swinging Pants.ogg"
+dest_files=[ "res://.import/Swinging Pants.ogg-c11bf409cb55a464da373fb845a20331.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

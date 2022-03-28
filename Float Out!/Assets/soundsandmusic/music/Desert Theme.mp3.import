@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Desert Theme.mp3-1e3a51506139b0fd0093319188915a45.mp3str"
+
+[deps]
+
+source_file="res://Assets/soundsandmusic/music/Desert Theme.mp3"
+dest_files=[ "res://.import/Desert Theme.mp3-1e3a51506139b0fd0093319188915a45.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

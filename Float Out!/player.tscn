@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://player_spriteframes.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://player.gd" type="Script" id=2]
+[ext_resource path="res://Assets/soundsandmusic/sounds/jumpSound.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/soundsandmusic/sounds/playerHurt.wav" type="AudioStream" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30, 45.5 )
+
+[node name="player" type="KinematicBody2D"]
+collision_mask = 30
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="SoundJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -29.0
+pitch_scale = 0.81
+
+[node name="SoundHurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -20.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 1.5, 1.5 )
+limit_left = 0
+limit_top = 0
+limit_right = 3640
+limit_bottom = 1260
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.3
+drag_margin_right = 0.3
+editor_draw_limits = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

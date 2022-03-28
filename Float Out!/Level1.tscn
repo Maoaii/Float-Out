@@ -1,0 +1,174 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://world_tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://pass_through_tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://Assets/Base pack/bg_castle.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Base pack/set2_tiles.png" type="Texture" id=5]
+[ext_resource path="res://blue_gem.tscn" type="PackedScene" id=6]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://slime.tscn" type="PackedScene" id=10]
+[ext_resource path="res://openDoor.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/soundsandmusic/music/Dungeon Theme.mp3" type="AudioStream" id=14]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 382.75, 104 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 30.125, 14.875 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 64.5, 16 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 15, 32 )
+
+[node name="Level1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="GreyBG" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 3072, 1536 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/GreyBG"]
+modulate = Color( 0.741176, 0.741176, 0.741176, 0.788235 )
+position = Vector2( 8, -246 )
+scale = Vector2( 12, 6 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Middle Blocks" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.4, 0.4 )
+motion_offset = Vector2( 0, -500 )
+motion_mirroring = Vector2( 3200, 1920 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Middle Blocks"]
+modulate = Color( 0.85098, 0.6, 0.6, 0.494118 )
+position = Vector2( -8, -241 )
+scale = Vector2( 5, 4 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Nearby Blocks" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.7, 0.7 )
+motion_mirroring = Vector2( 2688, 1824 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nearby Blocks"]
+modulate = Color( 0.886275, 0.886275, 0.886275, 0.172549 )
+position = Vector2( -8, -241 )
+scale = Vector2( 4.2, 3.8 )
+texture = ExtResource( 5 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="slime1" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( 961, 1105 )
+direction = -1
+
+[node name="slime2" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( 2401, 1102 )
+speed = 130
+
+[node name="slime3" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( 2475, 613 )
+direction = -1
+speed = 90
+
+[node name="slime4" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( 1610, 753 )
+direction = -1
+detects_cliffs = false
+speed = 140
+
+[node name="Tiles One-Way" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 70, 70 )
+collision_layer = 2
+collision_mask = 49
+format = 1
+tile_data = PoolIntArray( 393256, -1073741813, 0, 393262, 5, 0, 655380, 11, 0, 655381, 11, 0, 720937, -1610612725, 0, 983044, 7, 0, 983064, 11, 0, 1048581, 7, 0 )
+
+[node name="Tiles Solid" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 70, 70 )
+collision_layer = 2
+collision_mask = 49
+format = 1
+tile_data = PoolIntArray( 0, 1610612746, 0, 1, 1610612749, 0, 2, 1610612749, 0, 3, 1610612749, 0, 4, 1610612749, 0, 5, 1610612749, 0, 6, 1610612749, 0, 7, 1610612749, 0, 8, 1610612749, 0, 9, 1610612749, 0, 10, 1610612749, 0, 11, 1610612749, 0, 12, 1610612749, 0, 13, 1610612749, 0, 14, 1610612749, 0, 15, 1610612749, 0, 16, 1610612749, 0, 17, 1610612749, 0, 18, 1610612749, 0, 19, 1610612749, 0, 20, 1610612749, 0, 21, 1610612749, 0, 22, 1610612749, 0, 23, 1610612749, 0, 24, 1610612749, 0, 25, 1610612749, 0, 26, 1610612749, 0, 27, 1610612749, 0, 28, 1610612749, 0, 29, 1610612749, 0, 30, 1610612749, 0, 31, 1610612749, 0, 32, 1610612749, 0, 33, 1610612749, 0, 34, 1610612749, 0, 35, 1610612749, 0, 36, 1610612749, 0, 37, 1610612749, 0, 38, 1610612749, 0, 39, 1610612749, 0, 40, 1610612749, 0, 41, 1610612749, 0, 42, 1610612749, 0, 43, 1610612749, 0, 44, 1610612749, 0, 45, 1610612749, 0, 46, 1610612749, 0, 47, 1610612749, 0, 48, 1610612749, 0, 49, 1610612749, 0, 50, 1610612749, 0, 51, 1610612747, 0, 52, 1, 0, 53, 1610612737, 0, 65536, 1, 0, 65587, 1, 0, 65588, 1, 0, 65589, 1, 0, 131072, 1, 0, 131123, 1, 0, 131124, 1, 0, 131125, 1, 0, 196608, 1, 0, 196659, 1, 0, 196660, 1, 0, 196661, 1, 0, 262144, 1, 0, 262145, 13, 0, 262146, 13, 0, 262147, 13, 0, 262148, 13, 0, 262149, 13, 0, 262150, 13, 0, 262151, 14, 0, 262195, 1, 0, 262196, 1, 0, 262197, 1, 0, 327680, 1, 0, 327731, 1, 0, 327732, 1, 0, 327733, 1, 0, 393216, 1, 0, 393227, 0, 0, 393257, 0, 0, 393267, 1, 0, 393268, 1, 0, 393269, 1, 0, 458752, 1, 0, 458796, 4, 0, 458797, 13, 0, 458798, 13, 0, 458799, 6, 0, 458803, 1, 0, 458804, 1, 0, 458805, 1, 0, 524288, 1, 0, 524303, 0, 0, 524333, 1, 0, 524334, 1, 0, 524339, 1, 0, 524340, 1, 0, 524341, 1, 0, 589824, 1, 0, 589856, 12, 0, 589857, 13, 0, 589858, 13, 0, 589859, 13, 0, 589860, 13, 0, 589861, 14, 0, 589869, 1, 0, 589870, 1, 0, 589875, 1, 0, 589876, 1, 0, 589877, 1, 0, 655360, 1, 0, 655405, 1, 0, 655406, 1, 0, 655411, 1, 0, 655412, 1, 0, 655413, 1, 0, 720896, 1, 0, 720914, 12, 0, 720915, 13, 0, 720916, 13, 0, 720917, 13, 0, 720918, 13, 0, 720919, 14, 0, 720936, 0, 0, 720941, 1, 0, 720942, 1, 0, 720947, 1, 0, 720948, 1, 0, 720949, 1, 0, 786432, 1, 0, 786477, 1, 0, 786478, 1, 0, 786483, 1, 0, 786484, 1, 0, 786485, 1, 0, 851968, 1, 0, 851979, 12, 0, 851980, 13, 0, 851981, 13, 0, 851982, 13, 0, 851983, 14, 0, 852012, 29, 0, 852013, 1, 0, 852014, 1, 0, 852019, 1, 0, 852020, 1, 0, 852021, 1, 0, 917504, 1, 0, 917549, 1, 0, 917550, 1, 0, 917555, 1, 0, 917556, 1, 0, 917557, 1, 0, 983040, 1, 0, 983085, 1, 0, 983086, 1, 0, 983091, 1, 0, 983092, 1, 0, 983093, 1, 0, 1048576, 11, 0, 1048577, 13, 0, 1048578, 13, 0, 1048579, 13, 0, 1048580, 13, 0, 1048581, 13, 0, 1048582, 13, 0, 1048583, 13, 0, 1048584, 13, 0, 1048585, 13, 0, 1048586, 13, 0, 1048587, 13, 0, 1048588, 13, 0, 1048589, 13, 0, 1048590, 13, 0, 1048591, 13, 0, 1048592, 13, 0, 1048593, 13, 0, 1048594, 13, 0, 1048595, 13, 0, 1048596, 13, 0, 1048597, 13, 0, 1048598, 13, 0, 1048599, 13, 0, 1048600, 13, 0, 1048607, 13, 0, 1048608, 13, 0, 1048609, 13, 0, 1048610, 13, 0, 1048611, 13, 0, 1048612, 13, 0, 1048613, 13, 0, 1048614, 13, 0, 1048615, 13, 0, 1048616, 13, 0, 1048617, 13, 0, 1048618, 13, 0, 1048619, 13, 0, 1048620, 13, 0, 1048621, 1, 0, 1048622, 1, 0, 1048623, 13, 0, 1048624, 13, 0, 1048625, 13, 0, 1048626, 13, 0, 1048627, 10, 0, 1048628, 1, 0, 1048629, 1, 0, 1114112, 1, 0, 1114113, 1, 0, 1114114, 1, 0, 1114115, 1, 0, 1114116, 1, 0, 1114117, 1, 0, 1114118, 1, 0, 1114119, 1, 0, 1114120, 1, 0, 1114121, 1, 0, 1114122, 1, 0, 1114123, 1, 0, 1114124, 1, 0, 1114125, 1, 0, 1114126, 1, 0, 1114127, 1, 0, 1114128, 1, 0, 1114129, 1, 0, 1114130, 1, 0, 1114131, 1, 0, 1114132, 1, 0, 1114133, 1, 0, 1114134, 1, 0, 1114135, 1, 0, 1114136, 1, 0, 1114143, 1, 0, 1114144, 1, 0, 1114145, 1, 0, 1114146, 1, 0, 1114147, 1, 0, 1114148, 1, 0, 1114149, 1, 0, 1114150, 1, 0, 1114151, 1, 0, 1114152, 1, 0, 1114153, 1, 0, 1114154, 1, 0, 1114155, 1, 0, 1114156, 1, 0, 1114157, 1, 0, 1114158, 1, 0, 1114159, 1, 0, 1114160, 1, 0, 1114161, 1, 0, 1114162, 1, 0, 1114163, 1, 0, 1114164, 1, 0, 1114165, 1, 0 )
+
+[node name="gems" type="Node2D" parent="."]
+
+[node name="gem1" parent="gems" instance=ExtResource( 6 )]
+position = Vector2( 950, 853 )
+
+[node name="gem2" parent="gems" instance=ExtResource( 6 )]
+position = Vector2( 398, 222 )
+
+[node name="gem3" parent="gems" instance=ExtResource( 6 )]
+position = Vector2( 271, 225 )
+
+[node name="gem4" parent="gems" instance=ExtResource( 6 )]
+position = Vector2( 147, 219 )
+
+[node name="gem5" parent="gems" instance=ExtResource( 6 )]
+position = Vector2( 1601, 720 )
+
+[node name="gem6" parent="gems" instance=ExtResource( 6 )]
+position = Vector2( 2223, 1059 )
+
+[node name="gem7" parent="gems" instance=ExtResource( 6 )]
+position = Vector2( 2907, 377 )
+
+[node name="gem8" parent="gems" instance=ExtResource( 6 )]
+position = Vector2( 3365, 1050 )
+
+[node name="Fall Zone" type="Area2D" parent="."]
+position = Vector2( 2229, 1412 )
+collision_layer = 4
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Fall Zone"]
+position = Vector2( -282, -104 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Fall Zone"]
+position = Vector2( -514, -307 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Fall Zone"]
+position = Vector2( -758.5, -656 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Fall Zone"]
+position = Vector2( 656, -605 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Fall Zone"]
+position = Vector2( 626, -955 )
+shape = SubResource( 13 )
+
+[node name="openDoor" parent="." instance=ExtResource( 13 )]
+position = Vector2( 3489, 1016 )
+
+[node name="musicLevel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -12.0
+autoplay = true
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 177, 1072 )
+
+[node name="HUD" parent="." instance=ExtResource( 7 )]
+
+[connection signal="gem_collected" from="gems/gem1" to="HUD" method="_on_gem_collected"]
+[connection signal="gem_collected" from="gems/gem2" to="HUD" method="_on_gem_collected"]
+[connection signal="gem_collected" from="gems/gem3" to="HUD" method="_on_gem_collected"]
+[connection signal="gem_collected" from="gems/gem4" to="HUD" method="_on_gem_collected"]
+[connection signal="gem_collected" from="gems/gem5" to="HUD" method="_on_gem_collected"]
+[connection signal="gem_collected" from="gems/gem6" to="HUD" method="_on_gem_collected"]
+[connection signal="gem_collected" from="gems/gem7" to="HUD" method="_on_gem_collected"]
+[connection signal="gem_collected" from="gems/gem8" to="HUD" method="_on_gem_collected"]
+[connection signal="body_entered" from="Fall Zone" to="player" method="_on_Fall_Zone_body_entered"]

@@ -1,0 +1,351 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Assets/fonts/KiriFont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/UI/grey_button04.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/arrow-UP.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/grey_button13.png" type="Texture" id=4]
+[ext_resource path="res://PlayButton.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Base pack/Enemies/slimeWalk2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Base pack/Enemies/flyFly1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Base pack/Enemies/pokerMad.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Base pack/Tiles/door_openTop.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Base pack/Tiles/door_openMid.png" type="Texture" id=10]
+[ext_resource path="res://Assets/soundsandmusic/music/Desert Theme.mp3" type="AudioStream" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.027451, 0, 0.305882, 0.709804 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=3]
+size = 29
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 29
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 20
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 24
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 40
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.0941176, 0.0431373, 0.352941, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="TitleMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="colorBG" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.258824, 0.14902, 0.47451, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 89.0
+margin_top = 69.0
+margin_right = 914.0
+margin_bottom = 180.0
+custom_colors/font_color = Color( 0.2, 1, 0.960784, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Float out!"
+align = 1
+
+[node name="Controls" type="Panel" parent="."]
+margin_left = 31.0
+margin_top = 307.0
+margin_right = 444.0
+margin_bottom = 567.0
+custom_styles/panel = SubResource( 2 )
+
+[node name="spaceBG" type="TextureRect" parent="Controls"]
+margin_left = 19.0
+margin_top = 199.0
+margin_right = 188.0
+margin_bottom = 239.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="spaceText" type="Label" parent="Controls"]
+margin_left = 41.0
+margin_top = 207.0
+margin_right = 161.0
+margin_bottom = 246.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "SPACE"
+
+[node name="toJumpText" type="Label" parent="Controls"]
+margin_left = 209.0
+margin_top = 205.0
+margin_right = 370.0
+margin_bottom = 235.0
+custom_fonts/font = SubResource( 4 )
+text = "to jump"
+
+[node name="controlsText" type="Label" parent="Controls"]
+margin_left = 19.0
+margin_top = 23.0
+margin_right = 212.0
+margin_bottom = 53.0
+custom_colors/font_color = Color( 1, 0.866667, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "controls:"
+
+[node name="aBG" type="TextureRect" parent="Controls"]
+margin_left = 19.0
+margin_top = 82.0
+margin_right = 54.0
+margin_bottom = 114.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="dBG" type="TextureRect" parent="Controls"]
+margin_left = 65.0
+margin_top = 82.0
+margin_right = 100.0
+margin_bottom = 114.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="leftBG" type="TextureRect" parent="Controls"]
+margin_left = 156.0
+margin_top = 83.0
+margin_right = 191.0
+margin_bottom = 115.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="rightBG" type="TextureRect" parent="Controls"]
+margin_left = 201.0
+margin_top = 84.0
+margin_right = 236.0
+margin_bottom = 116.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="sBG" type="TextureRect" parent="Controls"]
+margin_left = 73.0
+margin_top = 140.0
+margin_right = 108.0
+margin_bottom = 172.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="aText" type="Label" parent="Controls"]
+margin_left = 24.0
+margin_top = 88.0
+margin_right = 49.0
+margin_bottom = 114.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "a"
+
+[node name="dText" type="Label" parent="Controls"]
+margin_left = 72.0
+margin_top = 87.0
+margin_right = 97.0
+margin_bottom = 113.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "d"
+
+[node name="leftText" type="Label" parent="Controls"]
+margin_left = 81.0
+margin_top = 145.0
+margin_right = 109.0
+margin_bottom = 171.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "s"
+
+[node name="leftArrow" type="TextureRect" parent="Controls"]
+margin_left = 232.0
+margin_top = 87.0
+margin_right = 258.0
+margin_bottom = 113.0
+rect_rotation = 90.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="rightArrow" type="TextureRect" parent="Controls"]
+margin_left = 160.0
+margin_top = 112.0
+margin_right = 186.0
+margin_bottom = 138.0
+rect_rotation = -90.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="orText" type="Label" parent="Controls"]
+margin_left = 111.0
+margin_top = 88.0
+margin_right = 151.0
+margin_bottom = 109.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "or"
+
+[node name="toMoveText" type="Label" parent="Controls"]
+margin_left = 255.0
+margin_top = 90.0
+margin_right = 388.0
+margin_bottom = 114.0
+custom_fonts/font = SubResource( 8 )
+text = "to move"
+
+[node name="toSpeedFallText" type="Label" parent="Controls"]
+margin_left = 131.0
+margin_top = 146.0
+margin_right = 350.0
+margin_bottom = 170.0
+custom_fonts/font = SubResource( 8 )
+text = "to speed fall"
+
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 389.0
+margin_top = 219.0
+margin_right = 579.0
+margin_bottom = 289.0
+custom_colors/font_color_hover = Color( 0.698039, 0.698039, 0.698039, 1 )
+custom_colors/font_color_pressed = Color( 0.431373, 0.431373, 0.431373, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "PLAY!"
+flat = true
+script = ExtResource( 5 )
+
+[node name="Information" type="Panel" parent="."]
+margin_left = 494.0
+margin_top = 309.0
+margin_right = 991.0
+margin_bottom = 564.0
+custom_styles/panel = SubResource( 10 )
+
+[node name="controlsText" type="Label" parent="Information"]
+margin_left = 19.0
+margin_top = 22.0
+margin_right = 288.0
+margin_bottom = 52.0
+custom_colors/font_color = Color( 1, 0.866667, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "INFORMATION:"
+
+[node name="flyImage" type="TextureRect" parent="Information"]
+margin_left = 24.0
+margin_top = 87.0
+margin_right = 103.0
+margin_bottom = 131.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="lavaDudeImage" type="TextureRect" parent="Information"]
+margin_left = 139.0
+margin_top = 67.0
+margin_right = 176.0
+margin_bottom = 157.0
+texture = ExtResource( 8 )
+expand = true
+
+[node name="slimeImage" type="TextureRect" parent="Information"]
+margin_left = 213.0
+margin_top = 93.0
+margin_right = 294.0
+margin_bottom = 132.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="topDoorImage" type="TextureRect" parent="Information"]
+margin_left = 151.0
+margin_top = 158.0
+margin_right = 205.0
+margin_bottom = 200.0
+texture = ExtResource( 9 )
+expand = true
+
+[node name="midDoorImage" type="TextureRect" parent="Information"]
+margin_left = 151.0
+margin_top = 200.0
+margin_right = 205.0
+margin_bottom = 243.0
+texture = ExtResource( 10 )
+expand = true
+
+[node name="toMoveText" type="Label" parent="Information"]
+margin_left = 320.0
+margin_top = 105.0
+margin_right = 479.0
+margin_bottom = 129.0
+custom_fonts/font = SubResource( 8 )
+text = "bad guys!"
+
+[node name="toMoveText2" type="Label" parent="Information"]
+margin_left = 234.0
+margin_top = 205.0
+margin_right = 393.0
+margin_bottom = 229.0
+custom_fonts/font = SubResource( 8 )
+text = "only way out!"
+
+[node name="toMoveText3" type="Label" parent="Information"]
+margin_left = 113.0
+margin_top = 104.0
+margin_right = 141.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 8 )
+text = "+"
+
+[node name="toMoveText4" type="Label" parent="Information"]
+margin_left = 190.0
+margin_top = 105.0
+margin_right = 218.0
+margin_bottom = 129.0
+custom_fonts/font = SubResource( 8 )
+text = "+"
+
+[node name="MusicTitleScreen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -16.0
+autoplay = true
+
+[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]

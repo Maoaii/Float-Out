@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/fonts/KiriFont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://MainMenuButton.gd" type="Script" id=2]
+[ext_resource path="res://Assets/soundsandmusic/music/winfretless.ogg" type="AudioStream" id=3]
+[ext_resource path="res://WinScreen.gd" type="Script" id=4]
+[ext_resource path="res://Assets/fonts/BalsamiqSans-Bold.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+outline_size = 3
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_size = 3
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 5 )
+
+[node name="WinScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="colorBG" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.423529, 0.823529, 1, 1 )
+
+[node name="youWinText" type="Label" parent="."]
+margin_left = 291.0
+margin_top = 182.0
+margin_right = 711.0
+margin_bottom = 253.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "YOU WIN!"
+
+[node name="MainMenuButton" type="Button" parent="."]
+margin_left = 363.0
+margin_top = 395.0
+margin_right = 651.0
+margin_bottom = 455.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.360784, 0.360784, 0.360784, 1 )
+custom_colors/font_color_pressed = Color( 0.623529, 0.623529, 0.623529, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Main Menu"
+flat = true
+script = ExtResource( 2 )
+
+[node name="Text" type="Label" parent="."]
+margin_left = 240.0
+margin_top = 299.0
+margin_right = 886.0
+margin_bottom = 359.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Gems collected:"
+
+[node name="soundWin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -7.0
+autoplay = true
+
+[node name="GemsCollected" type="Label" parent="."]
+margin_left = 673.0
+margin_top = 280.0
+margin_right = 751.0
+margin_bottom = 352.0
+custom_colors/font_color = Color( 0.0705882, 0.262745, 0.635294, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "##"
+valign = 1
+
+[connection signal="pressed" from="MainMenuButton" to="MainMenuButton" method="_on_MainMenuButton_pressed"]
